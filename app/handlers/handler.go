@@ -11,7 +11,10 @@ import (
 |
 | Application route handlers for the project should
 | be defined here. Other handler files can be used
-| to keep the project organized.
+| to keep the project organized. Funcs need to be of
+| this structure:
+|
+|     func foo(bar martini.Params) string {}
 |
 */
 
