@@ -5,6 +5,7 @@ import (
 	"github.com/go-martini/martini"
 	"net/http"
 	"strconv"
+	"strings"
 )
 
 var m = martini.Classic()
@@ -20,7 +21,7 @@ func Start() {
 func StartWebserver() {
 	// Add application routes
 	for _, r := range config.Routes {
-		switch r.Type {
+		switch strings.ToUpper(r.Type) {
 			case "GET":
 				m.Get(r.Path, r.Handler)
 			case "POST":

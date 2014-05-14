@@ -6,12 +6,7 @@ import (
 	"strings"
 )
 
-/*
-|--------------------------------------------------
-| Configure The Database
-|--------------------------------------------------
-*/
-
+// Configure the database
 func ConfigureDatabase() {
 	// Default application database.
 	switch strings.ToLower(config.Database) {
