@@ -5,6 +5,5 @@ import (
 )
 
 func main() {
-	// Configure everything
-	start.Configure()
+	start.Start()
 }

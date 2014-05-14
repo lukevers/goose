@@ -36,3 +36,15 @@ var Timezone = "UTC"
 */
 
 var Port = 3000
+
+/*
+|--------------------------------------------------
+| Default Application Listen Host
+|--------------------------------------------------
+|
+| The application listen host specifies what host
+| for the webserver to listen on.
+|
+*/
+
+var Host = "0.0.0.0"
