@@ -7,7 +7,7 @@ import (
 	"strconv"
 )
 
-var Route = martini.Classic()
+var m = martini.Classic()
 
 func Start() {
 	// Configure databases
@@ -22,21 +22,21 @@ func StartWebserver() {
 	for _, r := range config.Routes {
 		switch r.Type {
 			case "GET":
-				Route.Get(r.Path, r.Handler)
+				m.Get(r.Path, r.Handler)
 			case "POST":
-				Route.Post(r.Path, r.Handler)
+				m.Post(r.Path, r.Handler)
 			case "PATCH":
-				Route.Patch(r.Path, r.Handler)
+				m.Patch(r.Path, r.Handler)
 			case "PUT":
-				Route.Put(r.Path, r.Handler)
+				m.Put(r.Path, r.Handler)
 			case "DELETE":
-				Route.Patch(r.Path, r.Handler)
+				m.Patch(r.Path, r.Handler)
 			case "OPTIONS":
-				Route.Options(r.Path, r.Handler)
+				m.Options(r.Path, r.Handler)
 		}
 	}
 
 	// Listen and serve
 	listen := config.Host+":"+strconv.Itoa(config.Port)
-	http.ListenAndServe(listen, Route)
+	http.ListenAndServe(listen, m)
 }

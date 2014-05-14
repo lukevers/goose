@@ -1,9 +1,24 @@
 package config
 
+import (
+	"../handlers"
+	"github.com/go-martini/martini"
+)
+
+/*
+|--------------------------------------------------
+| Route Type
+|--------------------------------------------------
+|
+| The `Route` type that is defined here is used to
+| control routes 
+|
+*/
+
 type Route struct {
 	Type 		string
 	Path		string
-	Handler 	func() string
+	Handler 	func(martini.Params) string
 }
 
 /*
@@ -20,11 +35,11 @@ var Routes = []*Route{
 	&Route{
 		Type: "GET",
 		Path: "/",
-		Handler: test,
+		Handler: handlers.HelloWorld,
 	},
-}
-
-
-func test() string {
-	return "hi world"
+	&Route{
+		Type: "GET",
+		Path: "/:user",
+		Handler: handlers.HelloUser,
+	},
 }
